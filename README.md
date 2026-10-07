@@ -1,5 +1,7 @@
 # Dazi: indirect taxes of Gemona, Udine and San Daniele del Friuli, 1346–1449
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23207786.svg)](https://doi.org/10.5281/zenodo.23207786)
+
 *I dazi di Gemona, Udine e San Daniele del Friuli, 1346–1449*
 
 **db** · 2002–2008 · version 2008  
@@ -49,7 +51,7 @@ Every amount is converted to *piccoli* through `UM.Piccoli` (mark of denari = 2,
 
 ## How to cite
 
-> Sbarbaro, Massimo. 2008. *Dazi: indirect taxes of Gemona, Udine and San Daniele del Friuli, 1346–1449*. Dataset (db, 2002–2008), version 2008. Zenodo.
+> Sbarbaro, Massimo. 2008. *Dazi: indirect taxes of Gemona, Udine and San Daniele del Friuli, 1346–1449*. Dataset (db, 2002–2008), version 2008. Zenodo. https://doi.org/10.5281/zenodo.23207786.
 
 ## License
 
