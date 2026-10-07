@@ -1,0 +1,131 @@
+Version =19
+VersionRequired =19
+Checksum =234827585
+Begin Report
+    LayoutForPrint = NotDefault
+    DefaultView =0
+    DateGrouping =1
+    GrpKeepTogether =1
+    PictureAlignment =2
+    DatasheetGridlinesBehavior =3
+    GridY =10
+    Width =15703
+    DatasheetFontHeight =10
+    ItemSuffix =9
+    Left =600
+    Top =330
+    Right =8295
+    Bottom =7110
+    DatasheetGridlinesColor =12632256
+    RecSrcDt = Begin
+        ' (binary data omitted)
+    End
+    DatasheetFontName ="Arial"
+    PrtMip = Begin
+        ' (binary data omitted)
+    End
+    PrtDevMode = Begin
+        ' (binary data omitted)
+    End
+    PrtDevNames = Begin
+        ' (binary data omitted)
+    End
+    NoSaveCTIWhenDisabled =1
+    Begin
+        Begin Chart
+            OldBorderStyle =1
+            Width =4536
+            Height =2835
+        End
+        Begin PageHeader
+            Height =0
+            Name ="IntestazionePagina"
+        End
+        Begin Section
+            KeepTogether = NotDefault
+            Height =14570
+            Name ="Corpo"
+            Begin
+                Begin Chart
+                    ColumnHeads = NotDefault
+                    Locked = NotDefault
+                    RowSourceTypeInt =2
+                    Left =56
+                    Top =56
+                    Width =15586
+                    Height =4711
+                    Name ="Grafico2"
+                    OleData = Begin
+                        ' (binary data omitted)
+                    End
+                    RowSourceType ="Table/Query"
+                    RowSource ="TRANSFORM Sum(((IIf([Meno]=0,[qta],-[Qta]))*[piccoli])/12) AS Totale SELECT Gene"
+                        "rale.Anno FROM (((((Pagamento INNER JOIN Quantita ON Pagamento.IdP = Quantita.Id"
+                        "P) INNER JOIN Rata ON Pagamento.IdR = Rata.IdR) INNER JOIN Segnatura ON Pagament"
+                        "o.IdS = Segnatura.IdS) INNER JOIN UM ON Quantita.IdU = UM.IdU) INNER JOIN Genera"
+                        "le ON Pagamento.IdG = Generale.IdG) INNER JOIN Luogo ON Generale.IdL = Luogo.IdL"
+                        " WHERE (((Luogo.Luogo)=\"san daniele\") AND ((Segnatura.Segnatura)<>\"totale\"))"
+                        " GROUP BY Generale.Anno PIVOT Segnatura.Segnatura;"
+                    Class ="MSGraph.Chart.8"
+                    OLEClass ="Grafico di Microsoft Graph 97"
+                End
+                Begin Chart
+                    ColumnHeads = NotDefault
+                    Locked = NotDefault
+                    RowSourceTypeInt =2
+                    Left =56
+                    Top =4932
+                    Width =15586
+                    Height =4711
+                    TabIndex =1
+                    Name ="Grafico3"
+                    OleData = Begin
+                        ' (binary data omitted)
+                    End
+                    RowSourceType ="Table/Query"
+                    RowSource ="TRANSFORM Sum(((IIf([Meno]=0,[qta],-[Qta]))*[piccoli])/12) AS Totale SELECT Gene"
+                        "rale.Anno FROM (((((Pagamento INNER JOIN Quantita ON Pagamento.IdP = Quantita.Id"
+                        "P) INNER JOIN Rata ON Pagamento.IdR = Rata.IdR) INNER JOIN Segnatura ON Pagament"
+                        "o.IdS = Segnatura.IdS) INNER JOIN UM ON Quantita.IdU = UM.IdU) INNER JOIN Genera"
+                        "le ON Pagamento.IdG = Generale.IdG) INNER JOIN Luogo ON Generale.IdL = Luogo.IdL"
+                        " WHERE (((Luogo.Luogo)=\"san daniele\") AND ((Segnatura.Segnatura)<>\"totale\" A"
+                        "nd (Segnatura.Segnatura)=\"Vino\")) GROUP BY Generale.Anno PIVOT Segnatura.Segna"
+                        "tura;"
+                    Class ="MSGraph.Chart.8"
+                    OLEClass ="Grafico di Microsoft Graph 97"
+                End
+                Begin Chart
+                    ColumnHeads = NotDefault
+                    Locked = NotDefault
+                    RowSourceTypeInt =2
+                    Left =56
+                    Top =9807
+                    Width =15586
+                    Height =4711
+                    TabIndex =2
+                    Name ="Grafico8"
+                    OleData = Begin
+                        ' (binary data omitted)
+                    End
+                    RowSourceType ="Table/Query"
+                    RowSource ="TRANSFORM Sum(((IIf([Meno]=0,[qta],-[Qta]))*[piccoli])/12) AS Totale SELECT Gene"
+                        "rale.Anno FROM (((((Pagamento INNER JOIN Quantita ON Pagamento.IdP = Quantita.Id"
+                        "P) INNER JOIN Rata ON Pagamento.IdR = Rata.IdR) INNER JOIN Segnatura ON Pagament"
+                        "o.IdS = Segnatura.IdS) INNER JOIN UM ON Quantita.IdU = UM.IdU) INNER JOIN Genera"
+                        "le ON Pagamento.IdG = Generale.IdG) INNER JOIN Luogo ON Generale.IdL = Luogo.IdL"
+                        " WHERE (((Luogo.Luogo)=\"san daniele\") AND ((Segnatura.Segnatura)<>\"totale\"))"
+                        " GROUP BY Generale.Anno PIVOT Segnatura.Segnatura;"
+                    Class ="MSGraph.Chart.8"
+                    OLEClass ="Grafico di Microsoft Graph"
+                    GUID = Begin
+                        ' (binary data omitted)
+                    End
+                End
+            End
+        End
+        Begin PageFooter
+            Height =0
+            Name ="PièDiPaginaPagina"
+        End
+    End
+End

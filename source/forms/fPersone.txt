@@ -1,0 +1,415 @@
+Version =19
+VersionRequired =19
+Checksum =234827947
+Begin Form
+    Modal = NotDefault
+    AutoCenter = NotDefault
+    FilterOn = NotDefault
+    AllowDesignChanges = NotDefault
+    DefaultView =0
+    TabularFamily =124
+    PictureAlignment =2
+    DatasheetGridlinesBehavior =3
+    GridY =10
+    Width =7170
+    DatasheetFontHeight =10
+    ItemSuffix =14
+    Left =3720
+    Top =1470
+    Right =11175
+    Bottom =4860
+    DatasheetGridlinesColor =12632256
+    Filter ="((Persone.Nome Like \"*abb*\"))"
+    RecSrcDt = Begin
+        ' (binary data omitted)
+    End
+    RecordSource ="Persone"
+    Caption ="Persone"
+    DatasheetFontName ="Arial"
+    PrtMip = Begin
+        ' (binary data omitted)
+    End
+    PrtDevMode = Begin
+        ' (binary data omitted)
+    End
+    PrtDevNames = Begin
+        ' (binary data omitted)
+    End
+    NoSaveCTIWhenDisabled =1
+    Begin
+        Begin Label
+            BackStyle =0
+            FontName ="Tahoma"
+        End
+        Begin CommandButton
+            Width =1701
+            Height =283
+            FontSize =8
+            FontWeight =400
+            ForeColor =-2147483630
+            FontName ="Tahoma"
+        End
+        Begin TextBox
+            FELineBreak = NotDefault
+            SpecialEffect =2
+            OldBorderStyle =0
+            Width =1701
+            LabelX =-1701
+            FontName ="Tahoma"
+        End
+        Begin ComboBox
+            SpecialEffect =2
+            Width =1701
+            LabelX =-1701
+            FontName ="Tahoma"
+        End
+        Begin FormHeader
+            Height =720
+            BackColor =12632256
+            Name ="IntestazioneMaschera"
+            GUID = Begin
+                ' (binary data omitted)
+            End
+            Begin
+                Begin Label
+                    OverlapFlags =85
+                    TextFontFamily =18
+                    Left =2925
+                    Top =60
+                    Width =1425
+                    Height =555
+                    FontSize =22
+                    Name ="Etichetta6"
+                    Caption ="Persone"
+                    FontName ="Times New Roman"
+                    GUID = Begin
+                        ' (binary data omitted)
+                    End
+                End
+            End
+        End
+        Begin Section
+            Height =1935
+            BackColor =9868950
+            Name ="Corpo"
+            GUID = Begin
+                ' (binary data omitted)
+            End
+            Begin
+                Begin TextBox
+                    Visible = NotDefault
+                    OverlapFlags =95
+                    IMESentenceMode =3
+                    Left =4035
+                    Top =750
+                    Width =2736
+                    Name ="IdPr"
+                    ControlSource ="IdPr"
+                    GUID = Begin
+                        ' (binary data omitted)
+                    End
+                    Begin
+                        Begin Label
+                            OverlapFlags =93
+                            Left =3660
+                            Top =750
+                            Width =375
+                            Height =240
+                            Name ="Etichetta1"
+                            Caption ="IdPr"
+                            GUID = Begin
+                                ' (binary data omitted)
+                            End
+                        End
+                    End
+                End
+                Begin TextBox
+                    OverlapFlags =85
+                    IMESentenceMode =3
+                    Left =1110
+                    Top =135
+                    Width =5880
+                    TabIndex =1
+                    Name ="Nome"
+                    ControlSource ="Nome"
+                    GUID = Begin
+                        ' (binary data omitted)
+                    End
+                    Begin
+                        Begin Label
+                            OverlapFlags =85
+                            Left =135
+                            Top =135
+                            Width =480
+                            Height =240
+                            Name ="Etichetta3"
+                            Caption ="Nome"
+                            GUID = Begin
+                                ' (binary data omitted)
+                            End
+                        End
+                    End
+                End
+                Begin ComboBox
+                    OldBorderStyle =0
+                    OverlapFlags =247
+                    IMESentenceMode =3
+                    Left =1110
+                    Top =540
+                    Width =5880
+                    TabIndex =2
+                    ColumnInfo ="\"\";\"\";\"10\";\"100\""
+                    GUID = Begin
+                        ' (binary data omitted)
+                    End
+                    Name ="Normalizzato"
+                    ControlSource ="Normalizzato"
+                    RowSourceType ="Table/Query"
+                    RowSource ="SELECT Persone.Normalizzato FROM Persone GROUP BY Persone.Normalizzato HAVING (("
+                        "Not (Persone.Normalizzato) Is Null));"
+                    Begin
+                        Begin Label
+                            OverlapFlags =93
+                            Left =120
+                            Top =540
+                            Width =990
+                            Height =240
+                            Name ="Etichetta5"
+                            Caption ="Normalizzato"
+                            GUID = Begin
+                                ' (binary data omitted)
+                            End
+                        End
+                    End
+                End
+                Begin ComboBox
+                    OldBorderStyle =0
+                    OverlapFlags =85
+                    IMESentenceMode =3
+                    Left =1110
+                    Top =1305
+                    Width =5880
+                    TabIndex =3
+                    ColumnInfo ="\"\";\"\";\"10\";\"100\""
+                    GUID = Begin
+                        ' (binary data omitted)
+                    End
+                    Name ="Origine"
+                    ControlSource ="Origine"
+                    RowSourceType ="Table/Query"
+                    RowSource ="SELECT Persone.Origine FROM Persone GROUP BY Persone.Origine;"
+                    Begin
+                        Begin Label
+                            OverlapFlags =85
+                            Left =135
+                            Top =1305
+                            Width =645
+                            Height =240
+                            Name ="Etichetta9"
+                            Caption ="Origine:"
+                            GUID = Begin
+                                ' (binary data omitted)
+                            End
+                        End
+                    End
+                End
+                Begin ComboBox
+                    OverlapFlags =247
+                    IMESentenceMode =3
+                    ColumnCount =2
+                    ListWidth =1440
+                    Left =1110
+                    Top =915
+                    Width =5880
+                    Height =255
+                    TabIndex =4
+                    ColumnInfo ="\"\";\"\";\"\";\"\";\"10\";\"300\""
+                    GUID = Begin
+                        ' (binary data omitted)
+                    End
+                    Name ="cmbLavoro"
+                    ControlSource ="IdL"
+                    RowSourceType ="Table/Query"
+                    RowSource ="SELECT Lavoro.IdL, Lavoro.Lavoro FROM Lavoro ORDER BY Lavoro.Lavoro;"
+                    ColumnWidths ="0;1440"
+                    OnDblClick ="[Event Procedure]"
+                    BaseInfo ="\"SELECT Lavoro.IdL, Lavoro.Lavoro FROM Lavoro ORDER BY Lavoro.Lavoro;\";\"Lavor"
+                        "o\";\"\";\"IdL\";\"Lavoro\";\"PrimaryKey\""
+                    Begin
+                        Begin Label
+                            OverlapFlags =85
+                            Left =120
+                            Top =915
+                            Width =600
+                            Height =245
+                            Name ="Lavoro_Etichetta"
+                            Caption ="Lavoro"
+                            GUID = Begin
+                                ' (binary data omitted)
+                            End
+                        End
+                    End
+                End
+                Begin TextBox
+                    OverlapFlags =85
+                    IMESentenceMode =3
+                    Left =1110
+                    Top =1680
+                    Width =5826
+                    TabIndex =5
+                    Name ="Note"
+                    ControlSource ="Note"
+                    GUID = Begin
+                        ' (binary data omitted)
+                    End
+                    Begin
+                        Begin Label
+                            OverlapFlags =85
+                            Left =135
+                            Top =1695
+                            Width =480
+                            Height =240
+                            Name ="Etichetta13"
+                            Caption ="Note:"
+                            GUID = Begin
+                                ' (binary data omitted)
+                            End
+                        End
+                    End
+                End
+            End
+        End
+        Begin FormFooter
+            Height =756
+            BackColor =12632256
+            Name ="PièDiPaginaMaschera"
+            GUID = Begin
+                ' (binary data omitted)
+            End
+            Begin
+                Begin CommandButton
+                    OverlapFlags =85
+                    Left =6435
+                    Top =60
+                    Width =576
+                    Height =576
+                    Name ="cmdEsci"
+                    Caption ="Comando7"
+                    OnClick ="[Event Procedure]"
+                    PictureData = Begin
+                        ' (binary data omitted)
+                    End
+                    ObjectPalette = Begin
+                        ' (binary data omitted)
+                    End
+                    ControlTipText ="Chiudi maschera"
+                    GUID = Begin
+                        ' (binary data omitted)
+                    End
+                End
+                Begin CommandButton
+                    OverlapFlags =85
+                    Left =360
+                    Top =90
+                    Width =576
+                    Height =576
+                    TabIndex =1
+                    Name ="cmdDel"
+                    Caption ="Comando8"
+                    OnClick ="[Event Procedure]"
+                    PictureData = Begin
+                        ' (binary data omitted)
+                    End
+                    ObjectPalette = Begin
+                        ' (binary data omitted)
+                    End
+                    ControlTipText ="Elimina record "
+                    GUID = Begin
+                        ' (binary data omitted)
+                    End
+                End
+                Begin CommandButton
+                    OverlapFlags =85
+                    Left =4350
+                    Top =75
+                    Width =576
+                    Height =576
+                    TabIndex =2
+                    Name ="cmdSave"
+                    Caption ="Comando12"
+                    OnClick ="[Event Procedure]"
+                    PictureData = Begin
+                        ' (binary data omitted)
+                    End
+                    ObjectPalette = Begin
+                        ' (binary data omitted)
+                    End
+                    ControlTipText ="Salva record"
+                    GUID = Begin
+                        ' (binary data omitted)
+                    End
+                End
+            End
+        End
+    End
+End
+CodeBehindForm
+Attribute VB_GlobalNameSpace = False
+Attribute VB_Creatable = True
+Attribute VB_PredeclaredId = True
+Attribute VB_Exposed = False
+Option Compare Database
+
+Private Sub cmbLavoro_DblClick(Cancel As Integer)
+ Dim stDocName As String
+    Dim stLinkCriteria As String
+
+    stDocName = "fLavoro"
+    DoCmd.OpenForm stDocName, , , stLinkCriteria
+End Sub
+
+Private Sub cmdEsci_Click()
+On Error GoTo Err_cmdEsci_Click
+
+    Me.Refresh
+
+    DoCmd.Close
+    
+Exit_cmdEsci_Click:
+    Exit Sub
+
+Err_cmdEsci_Click:
+    MsgBox Err.Description
+    Resume Exit_cmdEsci_Click
+    
+End Sub
+Private Sub cmdDEl_Click()
+On Error GoTo Err_cmdDEl_Click
+
+
+    DoCmd.DoMenuItem acFormBar, acEditMenu, 8, , acMenuVer70
+    DoCmd.DoMenuItem acFormBar, acEditMenu, 6, , acMenuVer70
+
+Exit_cmdDEl_Click:
+    Exit Sub
+
+Err_cmdDEl_Click:
+    MsgBox Err.Description
+    Resume Exit_cmdDEl_Click
+    
+End Sub
+Private Sub cmdSave_Click()
+On Error GoTo Err_cmdSave_Click
+
+
+    DoCmd.DoMenuItem acFormBar, acRecordsMenu, acSaveRecord, , acMenuVer70
+    Me.Refresh
+    
+Exit_cmdSave_Click:
+    Exit Sub
+
+Err_cmdSave_Click:
+    MsgBox Err.Description
+    Resume Exit_cmdSave_Click
+    
+End Sub

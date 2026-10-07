@@ -1,0 +1,287 @@
+Version =19
+VersionRequired =19
+Checksum =234827646
+Begin Form
+    AutoResize = NotDefault
+    RecordSelectors = NotDefault
+    DefaultView =0
+    ScrollBars =0
+    PictureAlignment =2
+    DatasheetGridlinesBehavior =3
+    GridY =10
+    Width =11610
+    DatasheetFontHeight =10
+    ItemSuffix =24
+    Left =1815
+    Top =3150
+    Right =13545
+    Bottom =6720
+    DatasheetGridlinesColor =12632256
+    RecSrcDt = Begin
+        ' (binary data omitted)
+    End
+    RecordSource ="Pagamento"
+    Caption ="Pagamento"
+    DatasheetFontName ="Arial"
+    PrtMip = Begin
+        ' (binary data omitted)
+    End
+    PrtDevMode = Begin
+        ' (binary data omitted)
+    End
+    PrtDevNames = Begin
+        ' (binary data omitted)
+    End
+    NoSaveCTIWhenDisabled =1
+    Begin
+        Begin Label
+            BackStyle =0
+        End
+        Begin Rectangle
+            SpecialEffect =3
+            BackStyle =0
+            Width =850
+            Height =850
+        End
+        Begin CommandButton
+            Width =1701
+            Height =283
+            FontSize =8
+            FontWeight =400
+            ForeColor =-2147483630
+            FontName ="Tahoma"
+        End
+        Begin TextBox
+            SpecialEffect =2
+            OldBorderStyle =0
+            Width =1701
+            LabelX =-1701
+        End
+        Begin ComboBox
+            SpecialEffect =2
+            Width =1701
+            LabelX =-1701
+        End
+        Begin Subform
+            SpecialEffect =2
+            Width =1701
+            Height =1701
+        End
+        Begin Section
+            CanGrow = NotDefault
+            Height =3900
+            BackColor =16777164
+            Name ="Corpo"
+            Begin
+                Begin TextBox
+                    Visible = NotDefault
+                    OverlapFlags =87
+                    Left =5460
+                    Top =510
+                    Width =486
+                    TabIndex =2
+                    Name ="IdP"
+                    ControlSource ="IdP"
+                    Begin
+                        Begin Label
+                            OverlapFlags =93
+                            Left =5145
+                            Top =510
+                            Width =315
+                            Height =240
+                            Name ="Etichetta1"
+                            Caption ="IdP"
+                        End
+                    End
+                End
+                Begin TextBox
+                    Visible = NotDefault
+                    OverlapFlags =87
+                    Left =6390
+                    Top =480
+                    Width =486
+                    TabIndex =3
+                    Name ="IdG"
+                    ControlSource ="IdG"
+                    Begin
+                        Begin Label
+                            OverlapFlags =93
+                            Left =6060
+                            Top =480
+                            Width =330
+                            Height =240
+                            Name ="Etichetta7"
+                            Caption ="IdG"
+                        End
+                    End
+                End
+                Begin ComboBox
+                    OverlapFlags =95
+                    ColumnCount =2
+                    ListWidth =1440
+                    Left =4084
+                    Top =64
+                    Width =1641
+                    Height =227
+                    ColumnInfo ="\"\";\"\";\"\";\"\";\"10\";\"100\""
+                    Name ="CasellaCombinata8"
+                    ControlSource ="IdS"
+                    RowSourceType ="Table/Query"
+                    RowSource ="SELECT DISTINCTROW Segnatura.IdS, Segnatura.Segnatura FROM Segnatura ORDER BY Se"
+                        "gnatura.Segnatura;"
+                    ColumnWidths ="0;1440"
+                    BaseInfo ="\"SELECT DISTINCTROW Segnatura.IdS, Segnatura.Segnatura FROM Segnatura ORDER BY "
+                        "Segnatura.Segnatura;\";\"Segnatura\";\"\";\"IdS\";\"Segnatura\";\"PrimaryKey\""
+                    Begin
+                        Begin Label
+                            OverlapFlags =93
+                            Left =3274
+                            Top =64
+                            Width =810
+                            Height =240
+                            Name ="Segnatura_Etichetta"
+                            Caption ="Segnatura"
+                        End
+                    End
+                End
+                Begin ComboBox
+                    OverlapFlags =95
+                    ColumnCount =2
+                    ListWidth =1440
+                    Left =6274
+                    Top =64
+                    Width =1401
+                    Height =227
+                    TabIndex =1
+                    ColumnInfo ="\"\";\"\";\"\";\"\";\"10\";\"100\""
+                    Name ="CasellaCombinata10"
+                    ControlSource ="IdR"
+                    RowSourceType ="Table/Query"
+                    RowSource ="SELECT DISTINCTROW [Rata].[IdR], [Rata].[Rata] FROM [Rata];"
+                    ColumnWidths ="0;1440"
+                    BaseInfo ="\"SELECT DISTINCTROW [Rata].[IdR], [Rata].[Rata] FROM [Rata];\";\"Rata\";\"\";\""
+                        "IdR\";\"Rata\";\"PrimaryKey\""
+                    Begin
+                        Begin Label
+                            OverlapFlags =93
+                            Left =5854
+                            Top =64
+                            Width =420
+                            Height =240
+                            Name ="Rata_Etichetta"
+                            Caption ="Rata"
+                        End
+                    End
+                End
+                Begin Subform
+                    OverlapFlags =85
+                    Left =30
+                    Top =780
+                    Width =5295
+                    Height =2160
+                    TabIndex =4
+                    Name ="Quantita"
+                    SourceObject ="Form.fQta"
+                    LinkChildFields ="IdP"
+                    LinkMasterFields ="IdP"
+                End
+                Begin Rectangle
+                    SpecialEffect =2
+                    OverlapFlags =247
+                    Left =3240
+                    Width =4588
+                    Height =397
+                    Name ="Casella15"
+                End
+                Begin CommandButton
+                    OverlapFlags =85
+                    Left =10005
+                    Top =60
+                    Width =576
+                    Height =576
+                    TabIndex =5
+                    Name ="cmdDel"
+                    Caption ="Comando21"
+                    OnClick ="[Event Procedure]"
+                    PictureData = Begin
+                        ' (binary data omitted)
+                    End
+                    ObjectPalette = Begin
+                        ' (binary data omitted)
+                    End
+                    ControlTipText ="Elimina record "
+                    GUID = Begin
+                        ' (binary data omitted)
+                    End
+                End
+                Begin Subform
+                    OverlapFlags =85
+                    Left =5370
+                    Top =780
+                    Width =6165
+                    Height =2175
+                    TabIndex =6
+                    Name ="LegamePPrF"
+                    SourceObject ="Form.fLegamePPrF"
+                    LinkChildFields ="IdP"
+                    LinkMasterFields ="IdP"
+                    GUID = Begin
+                        ' (binary data omitted)
+                    End
+                End
+            End
+        End
+    End
+End
+CodeBehindForm
+Attribute VB_GlobalNameSpace = False
+Attribute VB_Creatable = True
+Attribute VB_PredeclaredId = True
+Attribute VB_Exposed = False
+Option Compare Database
+
+Private Sub cmbPersone_DblClick(Cancel As Integer)
+  Dim stDocName As String
+    Dim stLinkCriteria As String
+
+    stDocName = "fPersone"
+    DoCmd.OpenForm stDocName, , , stLinkCriteria
+    
+    'Me.Refresh
+    
+End Sub
+Private Sub cmdSave_Click()
+On Error GoTo Err_cmdSave_Click
+
+
+    DoCmd.DoMenuItem acFormBar, acRecordsMenu, acSaveRecord, , acMenuVer70
+'Me.Refresh
+'Me.Recalc
+'Me.Requery
+
+  '  DoCmd.DoMenuItem acFormBar, acEditMenu, 8, , acMenuVer70
+    DoCmd.DoMenuItem acFormBar, acRecordsMenu, acRefresh, , acMenuVer70
+
+Exit_cmdSave_Click:
+    Exit Sub
+
+Err_cmdSave_Click:
+    MsgBox Err.Description
+    Resume Exit_cmdSave_Click
+    
+End Sub
+Private Sub cmdDEl_Click()
+On Error GoTo Err_cmdDEl_Click
+
+
+    DoCmd.DoMenuItem acFormBar, acEditMenu, 8, , acMenuVer70
+    DoCmd.DoMenuItem acFormBar, acEditMenu, 6, , acMenuVer70
+
+Exit_cmdDEl_Click:
+    Exit Sub
+
+Err_cmdDEl_Click:
+    MsgBox Err.Description
+    Resume Exit_cmdDEl_Click
+    
+End Sub

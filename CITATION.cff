@@ -1,0 +1,21 @@
+cff-version: 1.2.0
+message: "If you use this database, please cite it as below."
+type: dataset
+title: "Dazi: indirect taxes of Gemona, Udine and San Daniele del Friuli, 1346–1449 (db, 2002–2008)"
+version: "2008"
+date-released: "2008-11-28"
+authors:
+  - family-names: Sbarbaro
+    given-names: Massimo
+    orcid: "https://orcid.org/0009-0006-8965-9013"
+license: CC-BY-4.0
+repository-code: "https://github.com/massimosbarbaro/gemona-udine-san-daniele-customs-duties-db"
+keywords:
+  - "medieval history"
+  - "indirect taxation"
+  - "customs duties"
+  - "Friuli"
+  - "Gemona"
+  - "Udine"
+  - "San Daniele"
+  - "database"

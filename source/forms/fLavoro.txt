@@ -1,0 +1,267 @@
+Version =19
+VersionRequired =19
+Checksum =234827646
+Begin Form
+    AllowDesignChanges = NotDefault
+    DefaultView =0
+    TabularFamily =124
+    PictureAlignment =2
+    DatasheetGridlinesBehavior =3
+    GridY =10
+    Width =4561
+    DatasheetFontHeight =10
+    ItemSuffix =8
+    Left =930
+    Top =90
+    Right =5775
+    Bottom =2610
+    DatasheetGridlinesColor =12632256
+    RecSrcDt = Begin
+        ' (binary data omitted)
+    End
+    RecordSource ="Lavoro"
+    Caption ="Lavoro"
+    DatasheetFontName ="Arial"
+    PrtMip = Begin
+        ' (binary data omitted)
+    End
+    PrtDevMode = Begin
+        ' (binary data omitted)
+    End
+    PrtDevNames = Begin
+        ' (binary data omitted)
+    End
+    NoSaveCTIWhenDisabled =1
+    Begin
+        Begin Label
+            BackStyle =0
+            FontName ="Tahoma"
+        End
+        Begin CommandButton
+            Width =1701
+            Height =283
+            FontSize =8
+            FontWeight =400
+            ForeColor =-2147483630
+            FontName ="Tahoma"
+        End
+        Begin TextBox
+            FELineBreak = NotDefault
+            SpecialEffect =2
+            OldBorderStyle =0
+            Width =1701
+            LabelX =-1701
+            FontName ="Tahoma"
+        End
+        Begin FormHeader
+            Height =570
+            BackColor =8421504
+            Name ="IntestazioneMaschera"
+            GUID = Begin
+                ' (binary data omitted)
+            End
+            Begin
+                Begin Label
+                    OverlapFlags =85
+                    TextFontFamily =18
+                    Left =1410
+                    Top =105
+                    Width =1515
+                    Height =450
+                    FontSize =20
+                    Name ="Etichetta7"
+                    Caption ="Lavoro"
+                    FontName ="Times New Roman"
+                    GUID = Begin
+                        ' (binary data omitted)
+                    End
+                End
+            End
+        End
+        Begin Section
+            Height =813
+            BackColor =12632256
+            Name ="Corpo"
+            GUID = Begin
+                ' (binary data omitted)
+            End
+            Begin
+                Begin TextBox
+                    OverlapFlags =85
+                    IMESentenceMode =3
+                    Left =975
+                    Top =120
+                    Width =516
+                    TabIndex =1
+                    Name ="IdL"
+                    ControlSource ="IdL"
+                    GUID = Begin
+                        ' (binary data omitted)
+                    End
+                    Begin
+                        Begin Label
+                            OverlapFlags =85
+                            Left =113
+                            Top =113
+                            Width =300
+                            Height =240
+                            Name ="Etichetta1"
+                            Caption ="IdL"
+                            GUID = Begin
+                                ' (binary data omitted)
+                            End
+                        End
+                    End
+                End
+                Begin TextBox
+                    OverlapFlags =85
+                    IMESentenceMode =3
+                    Left =975
+                    Top =453
+                    Width =3045
+                    Name ="Lavoro"
+                    ControlSource ="Lavoro"
+                    GUID = Begin
+                        ' (binary data omitted)
+                    End
+                    Begin
+                        Begin Label
+                            OverlapFlags =85
+                            Left =113
+                            Top =453
+                            Width =570
+                            Height =240
+                            Name ="Etichetta3"
+                            Caption ="Lavoro"
+                            GUID = Begin
+                                ' (binary data omitted)
+                            End
+                        End
+                    End
+                End
+            End
+        End
+        Begin FormFooter
+            Height =1134
+            BackColor =8421504
+            Name ="PièDiPaginaMaschera"
+            GUID = Begin
+                ' (binary data omitted)
+            End
+            Begin
+                Begin CommandButton
+                    OverlapFlags =85
+                    Left =3780
+                    Top =225
+                    Width =576
+                    Height =576
+                    Name ="cmdEsci"
+                    Caption ="Comando4"
+                    OnClick ="[Event Procedure]"
+                    PictureData = Begin
+                        ' (binary data omitted)
+                    End
+                    ObjectPalette = Begin
+                        ' (binary data omitted)
+                    End
+                    ControlTipText ="Chiudi maschera"
+                    GUID = Begin
+                        ' (binary data omitted)
+                    End
+                End
+                Begin CommandButton
+                    OverlapFlags =85
+                    Left =150
+                    Top =225
+                    Width =576
+                    Height =576
+                    TabIndex =1
+                    Name ="cmdDel"
+                    Caption ="Comando5"
+                    OnClick ="[Event Procedure]"
+                    PictureData = Begin
+                        ' (binary data omitted)
+                    End
+                    ObjectPalette = Begin
+                        ' (binary data omitted)
+                    End
+                    ControlTipText ="Elimina record "
+                    GUID = Begin
+                        ' (binary data omitted)
+                    End
+                End
+                Begin CommandButton
+                    OverlapFlags =85
+                    Left =2640
+                    Top =225
+                    Width =576
+                    Height =576
+                    TabIndex =2
+                    Name ="cmdSave"
+                    Caption ="Comando6"
+                    OnClick ="[Event Procedure]"
+                    PictureData = Begin
+                        ' (binary data omitted)
+                    End
+                    ObjectPalette = Begin
+                        ' (binary data omitted)
+                    End
+                    ControlTipText ="Salva record"
+                    GUID = Begin
+                        ' (binary data omitted)
+                    End
+                End
+            End
+        End
+    End
+End
+CodeBehindForm
+Attribute VB_GlobalNameSpace = False
+Attribute VB_Creatable = True
+Attribute VB_PredeclaredId = True
+Attribute VB_Exposed = False
+Option Compare Database
+
+Private Sub cmdEsci_Click()
+On Error GoTo Err_cmdEsci_Click
+
+
+    DoCmd.Close
+
+Exit_cmdEsci_Click:
+    Exit Sub
+
+Err_cmdEsci_Click:
+    MsgBox Err.Description
+    Resume Exit_cmdEsci_Click
+    
+End Sub
+Private Sub cmdDEl_Click()
+On Error GoTo Err_cmdDEl_Click
+
+
+    DoCmd.DoMenuItem acFormBar, acEditMenu, 8, , acMenuVer70
+    DoCmd.DoMenuItem acFormBar, acEditMenu, 6, , acMenuVer70
+
+Exit_cmdDEl_Click:
+    Exit Sub
+
+Err_cmdDEl_Click:
+    MsgBox Err.Description
+    Resume Exit_cmdDEl_Click
+    
+End Sub
+Private Sub cmdSave_Click()
+On Error GoTo Err_cmdSave_Click
+
+
+    DoCmd.DoMenuItem acFormBar, acRecordsMenu, acSaveRecord, , acMenuVer70
+
+Exit_cmdSave_Click:
+    Exit Sub
+
+Err_cmdSave_Click:
+    MsgBox Err.Description
+    Resume Exit_cmdSave_Click
+    
+End Sub

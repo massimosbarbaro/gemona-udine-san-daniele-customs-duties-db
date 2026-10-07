@@ -1,0 +1,386 @@
+Option Compare Database
+Option Explicit
+Public db As Database
+Public sRic As String, sPosizione As String, sOpen As String, sForm As String
+Public sMicro As String
+Public sDe As String, sAb As String, sPDe As String, sPAb As String, sTot As String, rsPersona As Recordset
+Public sTmp As String
+
+Public Function CheckDate(dDatascadenza As Date) As Boolean
+    Dim dDataOggi As Date, fExit As Boolean
+    dDataOggi = Now()
+    If dDataOggi > dDatascadenza Then
+        fExit = False
+    Else
+        fExit = True
+    End If
+    CheckDate = fExit
+End Function
+Public Function Apertura(sApertura As String)
+ 
+        If Right$(sApertura, 1) = ";" Then
+            'Devo spezzare la stringa di apertura
+            sRic = ";"
+            sPosizione = InStr(1, sApertura, sRic, 1)
+            sOpen = Left$(sApertura, sPosizione - 1)
+            sForm = Mid$(sApertura, sPosizione + 1, (Len(sApertura) - sPosizione - 1))
+            
+       End If
+        
+
+End Function
+Public Function Microtoponimo(IdLuogo As String)
+Dim sqlc As String, sWhere As String, rsMicrotoponimo As Recordset
+    Set db = CurrentDb
+    If Not IsNull(IdLuogo) And IdLuogo <> "" Then
+        sWhere = IdLuogo
+    Else
+        sWhere = "99999"
+    
+    End If
+    
+    sqlc = "SELECT Luogo.IdLuogo, Luogo.ToponimoDocumento, " & _
+                "Luogo.CircoscrizionePrimaria, Luogo.CircoscrizioneSecondaria, " & _
+                "Luogo.Ubicazione, Luogo.Tipologia, Patronimico.Nome, " & _
+                "LuogoPatronimico.ToponimoDocumento AS De, Luogo.Specificazione, " & _
+                "Luogo.ToponimoAttuale, Luogo.PrvinciaAttuale, Luogo.IdUbicazioneP, " & _
+                "Luogo.IdUbicazioneE " & _
+            "FROM (Luogo LEFT JOIN Patronimico ON Luogo.IdPersona " & _
+                "= Patronimico.IdPersona) LEFT JOIN Luogo AS LuogoPatronimico " & _
+                "ON Patronimico.DEIdLuogo = LuogoPatronimico.IdLuogo " & _
+            "WHERE Luogo.IdLuogo=" & sWhere
+
+    Set rsMicrotoponimo = db.OpenRecordset(sqlc, dbOpenSnapshot)
+        If Not rsMicrotoponimo.EOF Then
+            sMicro = rsMicrotoponimo("ToponimoDocumento")
+            If Not IsNull(rsMicrotoponimo("CircoscrizionePrimaria")) And rsMicrotoponimo("CircoscrizionePrimaria") <> "" Then
+                sMicro = sMicro & ", " & rsMicrotoponimo("CircoscrizionePrimaria")
+            Else
+                sMicro = sMicro
+            End If
+            If Not IsNull(rsMicrotoponimo("CircoscrizioneSecondaria")) And rsMicrotoponimo("CircoscrizioneSecondaria") <> "" Then
+                sMicro = sMicro & ", " & rsMicrotoponimo("CircoscrizioneSecondaria")
+            Else
+                sMicro = sMicro
+            End If
+            If Not IsNull(rsMicrotoponimo("Ubicazione")) And rsMicrotoponimo("Ubicazione") <> "" Then
+                sMicro = sMicro & ", " & rsMicrotoponimo("Ubicazione")
+            Else
+                sMicro = sMicro
+            End If
+            If Not IsNull(rsMicrotoponimo("Tipologia")) And rsMicrotoponimo("Tipologia") <> "" Then
+                sMicro = sMicro & ", " & rsMicrotoponimo("Tipologia")
+            Else
+                sMicro = sMicro
+            End If
+            If Not IsNull(rsMicrotoponimo("Nome")) And rsMicrotoponimo("Nome") <> "" Then
+                sMicro = sMicro & ", " & rsMicrotoponimo("Nome")
+            Else
+                sMicro = sMicro
+            End If
+            If Not IsNull(rsMicrotoponimo("DE")) And rsMicrotoponimo("DE") <> "" Then
+                sMicro = sMicro & ", de " & rsMicrotoponimo("DE")
+            Else
+                sMicro = sMicro
+            End If
+            If Not IsNull(rsMicrotoponimo("Specificazione")) And rsMicrotoponimo("Specificazione") <> "" Then
+                sMicro = sMicro & ", " & rsMicrotoponimo("Specificazione")
+            Else
+                sMicro = sMicro
+            End If
+            
+
+'            cmbTipoAtto.Enabled = True
+            sMicro = sMicro
+            
+        Else
+            sMicro = ""
+        End If
+'    fStato = False
+End Function
+
+Public Function Persona(sPers As String)
+Dim sqlc As String, sWhere As String
+Set db = CurrentDb
+If IsNumeric(sPers) Then
+    sWhere = "WHERE Patronimico.IdPersona=" & sPers
+Else
+    sWhere = "WHERE Patronimico.Nome Like '*" & sPers & "*' " & _
+                "OR Patronimico.Normalizzato Like '*" & sPers & "*'"
+End If
+
+
+
+sqlc = "SELECT Patronimico.IdPersona, Patronimico.Nome, Patronimico.Cognome, Patronimico.Detto, " & _
+            "Luogo.ToponimoDocumento AS De, Luogo.CircoscrizionePrimaria AS P, " & _
+            "Luogo.CircoscrizioneSecondaria AS S, Luogo.Ubicazione AS U, " & _
+            "Luogo.Tipologia AS T, Luogo.Specificazione AS Sp, Luogo_3.ToponimoDocumento " & _
+            "AS Abitante, Luogo_3.CircoscrizionePrimaria AS AbP, Luogo_3.CircoscrizioneSecondaria AS AbS, Luogo_3.Ubicazione AS AbU, " & _
+            "Luogo_3.Tipologia AS AbT, Luogo_3.Specificazione AS AbSp, Patronimico.Lavoro, " & _
+            "Patronimico.Qualifica, Patronimico.Note, Patronimico.Normalizzato, " & _
+            "Parentela.Stato, Parentela.Data, Patronimico_1.Nome AS NomeP, " & _
+            "Patronimico_1.Cognome AS CognomeP, Patronimico_1.Detto AS DettoP, " & _
+            "Luogo_1.ToponimoDocumento AS PDe, Luogo_1.CircoscrizionePrimaria AS PP, " & _
+            "Luogo_1.CircoscrizioneSecondaria AS PS, Luogo_1.Ubicazione AS PU, " & _
+            "Luogo_1.Tipologia AS PT, Luogo_1.Specificazione AS PSp, " & _
+            "Luogo_2.ToponimoDocumento AS PAbitante, Luogo_2.CircoscrizionePrimaria " & _
+            "AS PAbP, Luogo_2.CircoscrizioneSecondaria AS PAbS, Luogo_2.Ubicazione AS PAbU, " & _
+            "Luogo_2.Tipologia AS PAbT, Luogo_2.Specificazione AS PAbSp, " & _
+            "Patronimico_1.Lavoro AS PLavoro, Patronimico_1.Qualifica AS PQualifica, " & _
+            "Patronimico_1.Note AS PNote, Patronimico_1.Normalizzato AS PNormalizzato " & _
+        "FROM (((((Patronimico LEFT JOIN Parentela ON Patronimico.IdPersona = " & _
+            "Parentela.IdPersona) LEFT JOIN Patronimico AS Patronimico_1 ON " & _
+            "Parentela.IdPersonaLink = Patronimico_1.IdPersona) LEFT JOIN Luogo AS " & _
+            "Luogo_1 ON Patronimico_1.DEIdLuogo = Luogo_1.IdLuogo) LEFT JOIN Luogo AS " & _
+            "Luogo_2 ON Patronimico_1.AbitanteIdLuogo = Luogo_2.IdLuogo) LEFT JOIN " & _
+            "Luogo ON Patronimico.DEIdLuogo = Luogo.IdLuogo) LEFT JOIN Luogo AS Luogo_3  " & _
+            "ON Patronimico.AbitanteIdLuogo = Luogo_3.IdLuogo " & _
+            sWhere
+Persona = sqlc
+Set rsPersona = db.OpenRecordset(sqlc, dbOpenDynaset)
+    Do While Not rsPersona.EOF
+'De
+        If Not IsNull(rsPersona("De")) And rsPersona("De") <> "" Then
+            sDe = "De " & rsPersona("De")
+        Else
+            sDe = ""
+        End If
+        If Not IsNull(rsPersona("P")) And rsPersona("P") <> "" Then
+            sDe = sDe & ", " & rsPersona("P")
+        Else
+            sDe = sDe & ""
+        End If
+        If Not IsNull(rsPersona("S")) And rsPersona("S") <> "" Then
+            sDe = sDe & ", " & rsPersona("S")
+        Else
+            sDe = sDe & ""
+        End If
+        If Not IsNull(rsPersona("U")) And rsPersona("U") <> "" Then
+            sDe = sDe & ", " & rsPersona("U")
+        Else
+            sDe = sDe & ""
+        End If
+            If Not IsNull(rsPersona("T")) And rsPersona("T") <> "" Then
+            sDe = sDe & ", " & rsPersona("T")
+        Else
+            sDe = sDe & ""
+        End If
+        If Not IsNull(rsPersona("Sp")) And rsPersona("Sp") <> "" Then
+            sDe = sDe & ", " & rsPersona("Sp")
+        Else
+            sDe = sDe & ""
+        End If
+ 'Abitante
+        If Not IsNull(rsPersona("Abitante")) And rsPersona("Abitante") <> "" Then
+            sAb = "Abitante " & rsPersona("Abitante")
+        Else
+            sAb = ""
+        End If
+        If Not IsNull(rsPersona("AbP")) And rsPersona("AbP") <> "" Then
+             sAb = sAb & ", " & rsPersona("AbP")
+        Else
+             sAb = sAb & ""
+        End If
+        If Not IsNull(rsPersona("AbS")) And rsPersona("AbS") <> "" Then
+             sAb = sAb & ", " & rsPersona("AbS")
+        Else
+             sAb = sAb & ""
+        End If
+        If Not IsNull(rsPersona("AbU")) And rsPersona("AbU") <> "" Then
+             sAb = sAb & ", " & rsPersona("AbU")
+        Else
+             sAb = sAb & ""
+        End If
+            If Not IsNull(rsPersona("AbT")) And rsPersona("AbT") <> "" Then
+             sAb = sAb & ", " & rsPersona("AbT")
+        Else
+             sAb = sAb & ""
+        End If
+        If Not IsNull(rsPersona("AbSp")) And rsPersona("AbSp") <> "" Then
+             sAb = sAb & ", " & rsPersona("AbSp")
+        Else
+             sAb = sAb & ""
+        End If
+'De Parente
+
+        If Not IsNull(rsPersona("PDe")) And rsPersona("PDe") <> "" Then
+            sPDe = "De " & rsPersona("PDe")
+        Else
+            sPDe = ""
+        End If
+        If Not IsNull(rsPersona("PP")) And rsPersona("PP") <> "" Then
+            sPDe = sPDe & ", " & rsPersona("PP")
+        Else
+            sPDe = sPDe & ""
+        End If
+        If Not IsNull(rsPersona("PS")) And rsPersona("PS") <> "" Then
+            sPDe = sPDe & ", " & rsPersona("PS")
+        Else
+            sPDe = sPDe & ""
+        End If
+        If Not IsNull(rsPersona("PU")) And rsPersona("PU") <> "" Then
+            sPDe = sPDe & ", " & rsPersona("PU")
+        Else
+            sPDe = sPDe & ""
+        End If
+            If Not IsNull(rsPersona("PT")) And rsPersona("PT") <> "" Then
+            sPDe = sPDe & ", " & rsPersona("PT")
+        Else
+            sPDe = sPDe & ""
+        End If
+        If Not IsNull(rsPersona("PSp")) And rsPersona("PSp") <> "" Then
+            sPDe = sPDe & ", " & rsPersona("PSp")
+        Else
+            sPDe = sPDe & ""
+        End If
+'Abitante Parente
+        If Not IsNull(rsPersona("PAbitante")) And rsPersona("PAbitante") <> "" Then
+            sPAb = "Abitante " & rsPersona("PAbitante")
+        Else
+            sPAb = ""
+        End If
+        If Not IsNull(rsPersona("PAbP")) And rsPersona("PAbP") <> "" Then
+             sPAb = sPAb & ", " & rsPersona("PAbP")
+        Else
+             sPAb = sPAb & ""
+        End If
+        If Not IsNull(rsPersona("PAbS")) And rsPersona("PAbS") <> "" Then
+             sPAb = sPAb & ", " & rsPersona("PAbS")
+        Else
+             sPAb = sPAb & ""
+        End If
+        If Not IsNull(rsPersona("PAbU")) And rsPersona("PAbU") <> "" Then
+             sPAb = sPAb & ", " & rsPersona("PAbU")
+        Else
+             sPAb = sPAb & ""
+        End If
+            If Not IsNull(rsPersona("PAbT")) And rsPersona("PAbT") <> "" Then
+             sPAb = sPAb & ", " & rsPersona("PAbT")
+        Else
+             sPAb = sPAb & ""
+        End If
+        If Not IsNull(rsPersona("PAbSp")) And rsPersona("PAbSp") <> "" Then
+             sPAb = sPAb & ", " & rsPersona("PAbSp")
+        Else
+             sPAb = sPAb & ""
+        End If
+'Stot
+        sTot = rsPersona("IdPersona")
+        If Not IsNull(rsPersona("Nome")) And rsPersona("Nome") <> "" Then
+            sTot = sTot & "; " & rsPersona("Nome")
+        Else
+            sTot = sTot & ""
+        End If
+        If Not IsNull(rsPersona("Normalizzato")) And rsPersona("Normalizzato") <> "" Then
+            sTot = sTot & ", " & rsPersona("Normalizzato")
+        Else
+            sTot = sTot & ""
+        End If
+        If Not IsNull(rsPersona("Cognome")) And rsPersona("Cognome") <> "" Then
+            sTot = sTot & ", " & rsPersona("Cognome")
+        Else
+            sTot = sTot & ""
+        End If
+        If Not IsNull(rsPersona("Detto")) And rsPersona("Detto") <> "" Then
+            sTot = sTot & ", " & rsPersona("Detto")
+        Else
+            sTot = sTot & ""
+        End If
+        If Not IsNull(sDe) And sDe <> "" Then
+            sTot = sTot & ", " & sDe
+        Else
+            sTot = sTot & ""
+        End If
+        If Not IsNull(sAb) And sAb <> "" Then
+            sTot = sTot & ", " & sAb
+        Else
+            sTot = sTot & ""
+        End If
+        If Not IsNull(rsPersona("Lavoro")) And rsPersona("Lavoro") <> "" Then
+            sTot = sTot & ", " & rsPersona("Lavoro")
+        Else
+            sTot = sTot & ""
+        End If
+        If Not IsNull(rsPersona("Qualifica")) And rsPersona("Qualifica") <> "" Then
+            sTot = sTot & ", " & rsPersona("Qualifica")
+        Else
+            sTot = sTot & ""
+        End If
+        If Not IsNull(rsPersona("Note")) And rsPersona("Note") <> "" Then
+            sTot = sTot & ", " & rsPersona("Note")
+        Else
+            sTot = sTot & ""
+        End If
+        If Not IsNull(rsPersona("Stato")) And rsPersona("Stato") <> "" Then
+            sTot = sTot & ", " & rsPersona("Stato")
+        Else
+            sTot = sTot & ""
+        End If
+        If Not IsNull(rsPersona("Data")) And rsPersona("Data") <> "" Then
+            sTot = sTot & ", " & rsPersona("Data")
+        Else
+            sTot = sTot & ""
+        End If
+        If Not IsNull(rsPersona("NomeP")) And rsPersona("NomeP") <> "" Then
+            sTot = sTot & ", " & rsPersona("NomeP")
+        Else
+            sTot = sTot & ""
+        End If
+        If Not IsNull(rsPersona("PNormalizzato")) And rsPersona("PNormalizzato") <> "" Then
+            sTot = sTot & ", " & rsPersona("PNormalizzato")
+        Else
+            sTot = sTot & ""
+        End If
+        If Not IsNull(rsPersona("CognomeP")) And rsPersona("CognomeP") <> "" Then
+            sTot = sTot & ", " & rsPersona("CognomeP")
+        Else
+            sTot = sTot & ""
+        End If
+        If Not IsNull(rsPersona("DettoP")) And rsPersona("DettoP") <> "" Then
+            sTot = sTot & ", " & rsPersona("DettoP")
+        Else
+            sTot = sTot & ""
+        End If
+        If Not IsNull(sPDe) And sPDe <> "" Then
+            sTot = sTot & ", " & sPDe
+        Else
+            sTot = sTot & ""
+        End If
+        If Not IsNull(sPAb) And sPAb <> "" Then
+            sTot = sTot & ", " & sPAb
+        Else
+            sTot = sTot & ""
+        End If
+        If Not IsNull(rsPersona("PLavoro")) And rsPersona("PLavoro") <> "" Then
+            sTot = sTot & ", " & rsPersona("PLavoro")
+        Else
+            sTot = sTot & ""
+        End If
+        If Not IsNull(rsPersona("PQualifica")) And rsPersona("PQualifica") <> "" Then
+            sTot = sTot & ", " & rsPersona("PQualifica")
+        Else
+            sTot = sTot & ""
+        End If
+        If Not IsNull(rsPersona("PNote")) And rsPersona("PNote") <> "" Then
+            sTot = sTot & ", " & rsPersona("PNote")
+        Else
+            sTot = sTot & ""
+        End If
+            sTot = sTot & ";"
+        'Debug.Print sTot
+            sTmp = sTmp & " " & sTot
+        rsPersona.MoveNext
+    Loop
+        
+End Function
+Public Function Elenchi(sTab As String, sCond As String)
+
+Dim sqlc As String
+
+sqlc = "Select * " & _
+        "From " & sTab & _
+        " where " & sCond
+
+Elenchi = sqlc
+
+End Function

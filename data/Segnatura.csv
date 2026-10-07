@@ -1,0 +1,39 @@
+"IdS","Segnatura","IdSe","IdSp"
+"1","Vino","1",
+"2","Olio, sale, pane","2","9"
+"3","Macello","3",
+"4","Misure","5",
+"5","Drappi/Panni","5",
+"6","Carico/Scarico","6",
+"7","Totale","7",
+"8","Sale","8",
+"9","Pane","9",
+"10","Pesce","10",
+"11","Olio","2",
+"12","Pascolo Cavalli","25","5"
+"13","Maiali","11",
+"14","Strutto","12",
+"15","Ferro","13",
+"16","Missitirie","14",
+"17","Fractionis","15",
+"18","Panni grigi","5","1"
+"19","Formaggio","16",
+"20","Quartarum","17",
+"21","Dischi Pescheria","18",
+"22","Panni stricti","5","2"
+"23","Corium (Cuoio)","19",
+"24","Pellicce","20",
+"25","Panni","5",
+"26","Lane","21",
+"27","Bercaminis","22",
+"28","Lagenarum","23",
+"29","Buciarum","24",
+"30","Vini et buciarum","1","8"
+"31","Assungie+Casei","12","10"
+"32","Assungie+Casei+Butiri","12","11"
+"33","Cargari+Discargari+Staumas paiciorum","6","12"
+"34","Pascolo al piano","25","4"
+"35","Pascolo al monte","25","3"
+"36","Pascolo al monte e al piano","25","7"
+"37","Pascolo de Palude","25","6"
+"38","Pascolo","25",

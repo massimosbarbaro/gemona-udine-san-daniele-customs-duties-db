@@ -1,0 +1,149 @@
+Version =19
+VersionRequired =19
+Checksum =234827551
+Begin Report
+    LayoutForPrint = NotDefault
+    DefaultView =0
+    DateGrouping =1
+    GrpKeepTogether =1
+    PictureAlignment =2
+    DatasheetGridlinesBehavior =3
+    GridY =10
+    Width =15647
+    DatasheetFontHeight =10
+    ItemSuffix =11
+    Left =600
+    Top =1110
+    Right =8745
+    Bottom =8340
+    DatasheetGridlinesColor =12632256
+    RecSrcDt = Begin
+        ' (binary data omitted)
+    End
+    DatasheetFontName ="Arial"
+    PrtMip = Begin
+        ' (binary data omitted)
+    End
+    PrtDevMode = Begin
+        ' (binary data omitted)
+    End
+    PrtDevNames = Begin
+        ' (binary data omitted)
+    End
+    NoSaveCTIWhenDisabled =1
+    Begin
+        Begin Chart
+            OldBorderStyle =1
+            Width =4536
+            Height =2835
+        End
+        Begin PageHeader
+            Height =0
+            Name ="IntestazionePagina"
+            GUID = Begin
+                ' (binary data omitted)
+            End
+        End
+        Begin Section
+            KeepTogether = NotDefault
+            Height =31680
+            Name ="Corpo"
+            GUID = Begin
+                ' (binary data omitted)
+            End
+            Begin
+                Begin Chart
+                    ColumnHeads = NotDefault
+                    Locked = NotDefault
+                    RowSourceTypeInt =2
+                    Top =113
+                    Width =15586
+                    Height =9976
+                    Name ="Grafico2"
+                    OleData = Begin
+                        ' (binary data omitted)
+                    End
+                    RowSourceType ="Table/Query"
+                    RowSource ="TRANSFORM Sum(((IIf([Meno]=0,[qta],-[Qta]))*[piccoli])) AS Totale SELECT General"
+                        "e.Anno FROM (((((Pagamento INNER JOIN Quantita ON Pagamento.IdP = Quantita.IdP) "
+                        "INNER JOIN Rata ON Pagamento.IdR = Rata.IdR) INNER JOIN Segnatura ON Pagamento.I"
+                        "dS = Segnatura.IdS) INNER JOIN UM ON Quantita.IdU = UM.IdU) INNER JOIN Generale "
+                        "ON Pagamento.IdG = Generale.IdG) INNER JOIN Luogo ON Generale.IdL = Luogo.IdL WH"
+                        "ERE (((Generale.Anno)<>\"1419\") AND ((Segnatura.Segnatura) Like \"vin*\" Or (Se"
+                        "gnatura.Segnatura) Like \"macel*\" Or (Segnatura.Segnatura) Like \"oli*\" Or (Se"
+                        "gnatura.Segnatura) Like \"ferr*\" Or (Segnatura.Segnatura) Like \"missi*\") AND "
+                        "((Luogo.Luogo)=\"gemona\")) GROUP BY Generale.Anno PIVOT \"\";"
+                    Class ="MSGraph.Chart.8"
+                    OLEClass ="Grafico di Microsoft Graph 97"
+                    GUID = Begin
+                        ' (binary data omitted)
+                    End
+                End
+                Begin Chart
+                    ColumnHeads = NotDefault
+                    Locked = NotDefault
+                    RowSourceTypeInt =2
+                    Top =10815
+                    Width =15586
+                    Height =8791
+                    TabIndex =1
+                    Name ="Grafico7"
+                    OleData = Begin
+                        ' (binary data omitted)
+                    End
+                    RowSourceType ="Table/Query"
+                    RowSource ="TRANSFORM Sum(((IIf([Meno]=0,[qta],-[Qta]))*[piccoli])) AS Totale SELECT General"
+                        "e.Anno FROM (((((Pagamento INNER JOIN Quantita ON Pagamento.IdP = Quantita.IdP) "
+                        "INNER JOIN Rata ON Pagamento.IdR = Rata.IdR) INNER JOIN Segnatura ON Pagamento.I"
+                        "dS = Segnatura.IdS) INNER JOIN UM ON Quantita.IdU = UM.IdU) INNER JOIN Generale "
+                        "ON Pagamento.IdG = Generale.IdG) INNER JOIN Luogo ON Generale.IdL = Luogo.IdL WH"
+                        "ERE (((Generale.Anno)<>\"1419\") AND ((Segnatura.Segnatura) Like \"vin*\" Or (Se"
+                        "gnatura.Segnatura) Like \"macel*\" Or (Segnatura.Segnatura) Like \"oli*\" Or (Se"
+                        "gnatura.Segnatura) Like \"ferr*\" Or (Segnatura.Segnatura) Like \"missi*\") AND "
+                        "((Luogo.Luogo)=\"gemona\")) GROUP BY Generale.Anno PIVOT \"\";"
+                    Class ="MSGraph.Chart.8"
+                    OLEClass ="Grafico di Microsoft Graph"
+                    GUID = Begin
+                        ' (binary data omitted)
+                    End
+                End
+                Begin Chart
+                    ColumnHeads = NotDefault
+                    Locked = NotDefault
+                    RowSourceTypeInt =2
+                    Left =56
+                    Top =22223
+                    Width =15586
+                    Height =8791
+                    TabIndex =2
+                    Name ="Grafico10"
+                    OleData = Begin
+                        ' (binary data omitted)
+                    End
+                    RowSourceType ="Table/Query"
+                    RowSource ="TRANSFORM Sum(((IIf([Meno]=0,[qta],-[Qta]))*[piccoli])) AS Totale SELECT General"
+                        "e.Anno FROM (((((Pagamento INNER JOIN Quantita ON Pagamento.IdP = Quantita.IdP) "
+                        "INNER JOIN Rata ON Pagamento.IdR = Rata.IdR) INNER JOIN Segnatura ON Pagamento.I"
+                        "dS = Segnatura.IdS) INNER JOIN UM ON Quantita.IdU = UM.IdU) INNER JOIN Generale "
+                        "ON Pagamento.IdG = Generale.IdG) INNER JOIN Luogo ON Generale.IdL = Luogo.IdL WH"
+                        "ERE (((Generale.Anno)<>\"1419\") AND ((Segnatura.Segnatura) Like \"vin*\" Or (Se"
+                        "gnatura.Segnatura) Like \"macel*\" Or (Segnatura.Segnatura) Like \"oli*\" Or (Se"
+                        "gnatura.Segnatura) Like \"ferr*\" Or (Segnatura.Segnatura) Like \"missi*\")) GRO"
+                        "UP BY Generale.Anno PIVOT Luogo.Luogo;"
+                    Class ="MSGraph.Chart.8"
+                    OLEClass ="Grafico di Microsoft Graph"
+                    GUID = Begin
+                        ' (binary data omitted)
+                    End
+                End
+            End
+        End
+        Begin PageFooter
+            Height =0
+            Name ="PièDiPaginaPagina"
+            GUID = Begin
+                ' (binary data omitted)
+            End
+        End
+    End
+End

@@ -1,0 +1,29 @@
+{
+  "title": "Dazi: indirect taxes of Gemona, Udine and San Daniele del Friuli, 1346–1449 (db, 2002–2008)",
+  "upload_type": "dataset",
+  "publication_date": "2008-11-28",
+  "description": "<p><em>I dazi di Gemona, Udine e San Daniele del Friuli, 1346–1449</em></p><p>A relational database of the indirect taxes (dazi) farmed out by three Friulian communes – Gemona, Udine and San Daniele – between 1346 and 1449. For every year and place it records which duties were farmed (wine, butchery, oil, salt and bread, cloth, measures, loading and unloading, pasture and many others), the instalments paid, the amounts in the different moneys of account and the people involved as tax farmers or guarantors, with their trade and origin. All amounts are converted to a common unit (piccoli) so that yearly revenues can be compared across duties and places. The database is the basis of the author's book on the duties of Gemona (see Related publication). It grew out of a first database built in 2002 on the registers of the camerari of San Daniele and Udine, which it supersedes.</p><p>Sources: Gemona (1346–1448, 58 years): Archivio Comunale di Gemona del Friuli, registers of the council deliberations and registers of the massari (income and expenditure of the commune), preserved for the years 1346, 1349, 1355–57, 1359, 1365–66, 1370–72, 1374, 1378, 1380–82, 1384, 1386–1400, 1402, 1404–10, 1412–24, 1426–49. Archival research by the author, published in the book cited below. San Daniele del Friuli (1373–1449, 35 years): Biblioteca Civica Guarneriana, San Daniele del Friuli – Archivio Storico Comunale (ASCD) 228 (1373, 1394–1403, 1414–19), 229 (1420–36), 230 (1437–49); Fondo Coluta 13 (1404–16); Fondo Fontanini 266 (1425). Udine (1348–1419, 21 years): Biblioteca Civica \"V. Joppi\", Udine, Fondo Joppi, ms. 882, vols. 5 (1348), 10 (1357), 10 bis (1356, 1364), 13 (1384), 14 (1385), 15 (1391), 18 (1419).</p><p>Database designed and compiled by Massimo Sbarbaro in 2002–2008.</p>",
+  "creators": [
+    {
+      "name": "Sbarbaro, Massimo",
+      "orcid": "0009-0006-8965-9013"
+    }
+  ],
+  "license": "cc-by-4.0",
+  "keywords": [
+    "medieval history",
+    "indirect taxation",
+    "customs duties",
+    "Friuli",
+    "Gemona",
+    "Udine",
+    "San Daniele",
+    "database"
+  ],
+  "version": "2008",
+  "language": "eng",
+  "references": [
+    "Sbarbaro, Massimo. 2010. I dazi di Gemona del Friuli. Per la storia delle imposte indirette nel Medioevo: nuove metodologie informatiche di analisi. Trieste: CERM (Collana Studi 07). ISBN 978-88-95368-09-2."
+  ],
+  "notes": "Database compiled 2002–2008."
+}

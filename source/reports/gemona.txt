@@ -1,0 +1,192 @@
+Version =19
+VersionRequired =19
+Checksum =234827646
+Begin Report
+    LayoutForPrint = NotDefault
+    DefaultView =0
+    DateGrouping =1
+    GrpKeepTogether =1
+    PictureAlignment =2
+    DatasheetGridlinesBehavior =3
+    GridY =10
+    Width =15647
+    DatasheetFontHeight =10
+    ItemSuffix =17
+    Left =600
+    Top =330
+    Right =11790
+    Bottom =8325
+    DatasheetGridlinesColor =12632256
+    RecSrcDt = Begin
+        ' (binary data omitted)
+    End
+    DatasheetFontName ="Arial"
+    PrtMip = Begin
+        ' (binary data omitted)
+    End
+    PrtDevMode = Begin
+        ' (binary data omitted)
+    End
+    PrtDevNames = Begin
+        ' (binary data omitted)
+    End
+    NoSaveCTIWhenDisabled =1
+    Begin
+        Begin Chart
+            OldBorderStyle =1
+            Width =4536
+            Height =2835
+        End
+        Begin PageHeader
+            Height =0
+            Name ="IntestazionePagina"
+        End
+        Begin Section
+            KeepTogether = NotDefault
+            Height =31680
+            Name ="Corpo"
+            Begin
+                Begin Chart
+                    ColumnHeads = NotDefault
+                    Locked = NotDefault
+                    RowSourceTypeInt =2
+                    Left =56
+                    Width =15526
+                    Height =4711
+                    Name ="Grafico0"
+                    OleData = Begin
+                        ' (binary data omitted)
+                    End
+                    RowSourceType ="Table/Query"
+                    RowSource ="TRANSFORM Sum(((IIf([Meno]=0,[qta],-[Qta]))*[piccoli])) AS Totale SELECT General"
+                        "e.Anno FROM (((((Pagamento INNER JOIN Quantita ON Pagamento.IdP = Quantita.IdP) "
+                        "INNER JOIN Rata ON Pagamento.IdR = Rata.IdR) INNER JOIN Segnatura ON Pagamento.I"
+                        "dS = Segnatura.IdS) INNER JOIN UM ON Quantita.IdU = UM.IdU) INNER JOIN Generale "
+                        "ON Pagamento.IdG = Generale.IdG) INNER JOIN Luogo ON Generale.IdL = Luogo.IdL WH"
+                        "ERE (((Luogo.Luogo)=\"gemona\") AND ((Segnatura.Segnatura) Like \"fer*\")) GROUP"
+                        " BY Generale.Anno PIVOT Luogo.Luogo;"
+                    Class ="MSGraph.Chart.8"
+                    OLEClass ="Grafico di Microsoft Graph 97"
+                End
+                Begin Chart
+                    ColumnHeads = NotDefault
+                    Locked = NotDefault
+                    RowSourceTypeInt =2
+                    Left =60
+                    Top =4530
+                    Width =15526
+                    Height =4711
+                    TabIndex =1
+                    Name ="Grafico1"
+                    OleData = Begin
+                        ' (binary data omitted)
+                    End
+                    RowSourceType ="Table/Query"
+                    RowSource ="TRANSFORM Sum((IIf([Meno]=0,[costo],-[costo]))) AS Totale SELECT qGemona.Anno FR"
+                        "OM qGemona WHERE (((qGemona.Segnatura) Like \"miss*\")) GROUP BY qGemona.Anno PI"
+                        "VOT qGemona.Luogo;"
+                    Class ="MSGraph.Chart.8"
+                    OLEClass ="Grafico di Microsoft Graph"
+                    GUID = Begin
+                        ' (binary data omitted)
+                    End
+                End
+                Begin Chart
+                    ColumnHeads = NotDefault
+                    Locked = NotDefault
+                    RowSourceTypeInt =2
+                    Top =9255
+                    Width =15526
+                    Height =4711
+                    TabIndex =2
+                    Name ="Grafico10"
+                    OleData = Begin
+                        ' (binary data omitted)
+                    End
+                    RowSourceType ="Table/Query"
+                    RowSource ="TRANSFORM Sum((IIf([Meno]=0,[costo],-[costo]))) AS Totale SELECT qGemona.Anno FR"
+                        "OM qGemona WHERE (((qGemona.Segnatura) Like \"str*\")) GROUP BY qGemona.Anno PIV"
+                        "OT qGemona.Luogo;"
+                    Class ="MSGraph.Chart.8"
+                    OLEClass ="Grafico di Microsoft Graph"
+                    GUID = Begin
+                        ' (binary data omitted)
+                    End
+                End
+                Begin Chart
+                    ColumnHeads = NotDefault
+                    Locked = NotDefault
+                    RowSourceTypeInt =2
+                    Left =15
+                    Top =13950
+                    Width =15526
+                    Height =4711
+                    TabIndex =3
+                    Name ="Grafico12"
+                    OleData = Begin
+                        ' (binary data omitted)
+                    End
+                    RowSourceType ="Table/Query"
+                    RowSource ="TRANSFORM Sum((IIf([Meno]=0,[costo],-[costo]))) AS Totale SELECT qGemona.Anno FR"
+                        "OM qGemona WHERE (((qGemona.Segnatura)=\"sale\")) GROUP BY qGemona.Anno PIVOT qG"
+                        "emona.Luogo;"
+                    Class ="MSGraph.Chart.8"
+                    OLEClass ="Grafico di Microsoft Graph"
+                    GUID = Begin
+                        ' (binary data omitted)
+                    End
+                End
+                Begin Chart
+                    ColumnHeads = NotDefault
+                    Locked = NotDefault
+                    RowSourceTypeInt =2
+                    Left =15
+                    Top =18780
+                    Width =15526
+                    Height =4711
+                    TabIndex =4
+                    Name ="Grafico13"
+                    OleData = Begin
+                        ' (binary data omitted)
+                    End
+                    RowSourceType ="Table/Query"
+                    RowSource ="TRANSFORM Sum((IIf([Meno]=0,[costo],-[costo]))) AS Totale SELECT qGemona.Anno FR"
+                        "OM qGemona WHERE (((qGemona.Segnatura) Like \"ol*\")) GROUP BY qGemona.Anno PIVO"
+                        "T qGemona.Luogo;"
+                    Class ="MSGraph.Chart.8"
+                    OLEClass ="Grafico di Microsoft Graph"
+                    GUID = Begin
+                        ' (binary data omitted)
+                    End
+                End
+                Begin Chart
+                    ColumnHeads = NotDefault
+                    Locked = NotDefault
+                    RowSourceTypeInt =2
+                    Left =15
+                    Top =23505
+                    Width =15526
+                    Height =4711
+                    TabIndex =5
+                    Name ="Grafico14"
+                    OleData = Begin
+                        ' (binary data omitted)
+                    End
+                    RowSourceType ="Table/Query"
+                    RowSource ="TRANSFORM Sum((IIf([Meno]=0,[costo],-[costo]))) AS Totale SELECT qGemona.Anno FR"
+                        "OM qGemona WHERE (((qGemona.Segnatura) Like \"mai*\")) GROUP BY qGemona.Anno PIV"
+                        "OT qGemona.Luogo;"
+                    Class ="MSGraph.Chart.8"
+                    OLEClass ="Grafico di Microsoft Graph"
+                    GUID = Begin
+                        ' (binary data omitted)
+                    End
+                End
+            End
+        End
+        Begin PageFooter
+            Height =0
+            Name ="PièDiPaginaPagina"
+        End
+    End
+End
